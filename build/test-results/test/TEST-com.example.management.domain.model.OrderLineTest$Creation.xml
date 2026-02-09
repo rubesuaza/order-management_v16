@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="creation" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-02-09T19:20:24.758Z" hostname="RubenS" time="0.04">
+  <properties/>
+  <testcase name="throws when quantity is negative" classname="com.example.management.domain.model.OrderLineTest$Creation" time="0.005"/>
+  <testcase name="throws when productId is null or blank" classname="com.example.management.domain.model.OrderLineTest$Creation" time="0.004"/>
+  <testcase name="throws when unit price is negative" classname="com.example.management.domain.model.OrderLineTest$Creation" time="0.003"/>
+  <testcase name="creates valid line with positive quantity and non-negative price" classname="com.example.management.domain.model.OrderLineTest$Creation" time="0.006"/>
+  <testcase name="throws when unitPrice is null" classname="com.example.management.domain.model.OrderLineTest$Creation" time="0.003"/>
+  <testcase name="throws when quantity is zero" classname="com.example.management.domain.model.OrderLineTest$Creation" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

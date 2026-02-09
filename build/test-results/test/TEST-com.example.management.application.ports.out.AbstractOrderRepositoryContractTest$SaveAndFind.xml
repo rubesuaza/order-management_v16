@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="save and findById" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-02-09T19:44:10.839Z" hostname="RubenS" time="0.015">
+<testsuite name="save and findById" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-02-09T19:49:16.527Z" hostname="RubenS" time="0.01">
   <properties/>
-  <testcase name="save_overwrites_existing_order()" classname="com.example.management.application.ports.out.AbstractOrderRepositoryContractTest$SaveAndFind" time="0.003"/>
+  <testcase name="save_overwrites_existing_order()" classname="com.example.management.application.ports.out.AbstractOrderRepositoryContractTest$SaveAndFind" time="0.001"/>
   <testcase name="findById_returns_empty_for_unknown_id()" classname="com.example.management.application.ports.out.AbstractOrderRepositoryContractTest$SaveAndFind" time="0.001"/>
   <testcase name="save_persists_order_and_findById_returns_it()" classname="com.example.management.application.ports.out.AbstractOrderRepositoryContractTest$SaveAndFind" time="0.004"/>
   <system-out><![CDATA[]]></system-out>

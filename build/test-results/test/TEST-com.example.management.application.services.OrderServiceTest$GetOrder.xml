@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="getOrder" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-02-09T19:44:10.584Z" hostname="RubenS" time="0.028">
+<testsuite name="getOrder" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-02-09T19:49:16.352Z" hostname="RubenS" time="0.017">
   <properties/>
-  <testcase name="returns empty when not found" classname="com.example.management.application.services.OrderServiceTest$GetOrder" time="0.012"/>
-  <testcase name="returns order when found" classname="com.example.management.application.services.OrderServiceTest$GetOrder" time="0.013"/>
+  <testcase name="returns empty when not found" classname="com.example.management.application.services.OrderServiceTest$GetOrder" time="0.007"/>
+  <testcase name="returns order when found" classname="com.example.management.application.services.OrderServiceTest$GetOrder" time="0.007"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

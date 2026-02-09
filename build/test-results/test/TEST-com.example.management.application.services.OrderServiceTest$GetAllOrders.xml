@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="getAllOrders" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-02-09T19:44:10.535Z" hostname="RubenS" time="0.036">
+<testsuite name="getAllOrders" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-02-09T19:49:16.313Z" hostname="RubenS" time="0.031">
   <properties/>
-  <testcase name="returns empty list when no orders" classname="com.example.management.application.services.OrderServiceTest$GetAllOrders" time="0.02"/>
-  <testcase name="returns all orders from repository" classname="com.example.management.application.services.OrderServiceTest$GetAllOrders" time="0.013"/>
+  <testcase name="returns empty list when no orders" classname="com.example.management.application.services.OrderServiceTest$GetAllOrders" time="0.015"/>
+  <testcase name="returns all orders from repository" classname="com.example.management.application.services.OrderServiceTest$GetAllOrders" time="0.014"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

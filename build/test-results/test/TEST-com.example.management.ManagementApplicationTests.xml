@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.management.ManagementApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-02-09T19:44:08.299Z" hostname="RubenS" time="1.354">
+<testsuite name="com.example.management.ManagementApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-02-09T19:49:14.849Z" hostname="RubenS" time="0.913">
   <properties/>
-  <testcase name="contextLoads()" classname="com.example.management.ManagementApplicationTests" time="1.354"/>
-  <system-out><![CDATA[14:44:02.614 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.management.ManagementApplicationTests]: ManagementApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-14:44:02.909 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.management.ManagementApplication for test class com.example.management.ManagementApplicationTests
+  <testcase name="contextLoads()" classname="com.example.management.ManagementApplicationTests" time="0.913"/>
+  <system-out><![CDATA[14:49:11.989 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.management.ManagementApplicationTests]: ManagementApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+14:49:12.151 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.management.ManagementApplication for test class com.example.management.ManagementApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -13,9 +13,9 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.0)
 
-2026-02-09T14:44:04.677-05:00  INFO 20148 --- [management] [    Test worker] c.e.m.ManagementApplicationTests         : Starting ManagementApplicationTests using Java 17.0.18 with PID 20148 (started by root in /root/agent_code_generator/workspaces/order_management_workspace/order-management_v16)
-2026-02-09T14:44:04.685-05:00  INFO 20148 --- [management] [    Test worker] c.e.m.ManagementApplicationTests         : No active profile set, falling back to 1 default profile: "default"
-2026-02-09T14:44:08.254-05:00  INFO 20148 --- [management] [    Test worker] c.e.m.ManagementApplicationTests         : Started ManagementApplicationTests in 4.755 seconds (process running for 7.684)
+2026-02-09T14:49:12.799-05:00  INFO 21817 --- [management] [    Test worker] c.e.m.ManagementApplicationTests         : Starting ManagementApplicationTests using Java 17.0.18 with PID 21817 (started by root in /root/agent_code_generator/workspaces/order_management_workspace/order-management_v16)
+2026-02-09T14:49:12.802-05:00  INFO 21817 --- [management] [    Test worker] c.e.m.ManagementApplicationTests         : No active profile set, falling back to 1 default profile: "default"
+2026-02-09T14:49:14.821-05:00  INFO 21817 --- [management] [    Test worker] c.e.m.ManagementApplicationTests         : Started ManagementApplicationTests in 2.441 seconds (process running for 4.14)
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -31,9 +31,7 @@ public class OrderService implements OrderUseCase {
     @Override
     public OrderOutputDto createOrder(UUID id, String customerId, List<CreateOrderLineCommand> lines) {
         try {
-            List<OrderLine> domainLines = lines.stream()
-                    .map(c -> OrderLine.of(c.productId(), c.quantity(), c.unitPrice()))
-                    .toList();
+            List<OrderLine> domainLines = toDomainLines(lines);
             Order order = Order.create(id, customerId, domainLines);
             Order saved = orderRepository.save(order);
             return toOutputDto(saved);
@@ -74,20 +72,21 @@ public class OrderService implements OrderUseCase {
     }
 
     private Order findOrThrow(UUID id) {
-        try {
-            return orderRepository.findById(id).orElseThrow(() -> new OrderNotFoundException(id));
-        } catch (OrderNotFoundException e) {
-            throw new OrderNotFoundApplicationException(e.getMessage(), e);
-        }
+        return orderRepository.findById(id).orElseThrow(() -> {
+            OrderNotFoundException domainEx = new OrderNotFoundException(id);
+            return new OrderNotFoundApplicationException(domainEx.getMessage(), domainEx);
+        });
+    }
+
+    private List<OrderLine> toDomainLines(List<CreateOrderLineCommand> lines) {
+        return lines.stream()
+                .map(c -> OrderLine.of(c.productId(), c.quantity(), c.unitPrice()))
+                .toList();
     }
 
     private OrderOutputDto toOutputDto(Order order) {
         List<OrderLineOutputDto> lineDtos = order.getLines().stream()
-                .map(l -> new OrderLineOutputDto(
-                        l.getProductId(),
-                        l.getQuantity(),
-                        l.getUnitPrice(),
-                        l.getLineTotal()))
+                .map(this::toOrderLineOutputDto)
                 .toList();
         return new OrderOutputDto(
                 order.getId(),
@@ -95,6 +94,15 @@ public class OrderService implements OrderUseCase {
                 order.getStatus().name(),
                 lineDtos,
                 order.getTotal()
+        );
+    }
+
+    private OrderLineOutputDto toOrderLineOutputDto(OrderLine line) {
+        return new OrderLineOutputDto(
+                line.getProductId(),
+                line.getQuantity(),
+                line.getUnitPrice(),
+                line.getLineTotal()
         );
     }
 }

@@ -1,0 +1,28 @@
+{
+  "status": "complete",
+  "structure_compliance": {
+    "score": 100,
+    "missing_files": []
+  },
+  "domain_compliance": {
+    "score": 100,
+    "missing_entities": [],
+    "notes": "Order (id, customerId, status, lines, total) con invariantes; OrderLine (productId, quantity, unitPrice, lineTotal) con validaciones; OrderStatus (DRAFT, CONFIRMED, SHIPPED, CANCELLED). Puertos OrderUseCase y OrderRepository y servicio OrderService implementados."
+  },
+  "test_results": {
+    "command_executed": "./gradlew test",
+    "passed": true,
+    "total_tests": 40,
+    "failures": 0,
+    "output_summary": "BUILD SUCCESSFUL. 40 tests, 0 failures, 100% success rate."
+  },
+  "gaps": [
+    {
+      "severity": "low",
+      "category": "documentation",
+      "description": "No existen en el workspace los archivos de definición (architecture/directory_structure.md, architecture/domain_definition.md, architecture/tech_stack.md). La auditoría se realizó por inspección del código y estructura actual.",
+      "fix_suggestion": "Opcional: añadir carpeta architecture/ con los MD si se desea que futuras revisiones comparen contra una fuente de verdad explícita."
+    }
+  ],
+  "next_recommended_action": "git_operations"
+}

@@ -24,10 +24,14 @@ public class Order {
         this.id = id;
         this.customerId = customerId;
         this.lines = List.copyOf(lines);
-        this.total = lines.stream()
+        this.total = computeTotal(lines);
+        this.status = OrderStatus.DRAFT;
+    }
+
+    private static BigDecimal computeTotal(List<OrderLine> lines) {
+        return lines.stream()
                 .map(OrderLine::getLineTotal)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
-        this.status = OrderStatus.DRAFT;
     }
 
     public static Order create(UUID id, String customerId, List<OrderLine> lines) {

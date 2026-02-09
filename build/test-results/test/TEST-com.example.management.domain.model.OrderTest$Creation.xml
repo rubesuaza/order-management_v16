@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="creation" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-02-09T19:44:10.785Z" hostname="RubenS" time="0.025">
+<testsuite name="creation" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-02-09T19:49:16.488Z" hostname="RubenS" time="0.019">
   <properties/>
-  <testcase name="throws when lines is empty" classname="com.example.management.domain.model.OrderTest$Creation" time="0.004"/>
+  <testcase name="throws when lines is empty" classname="com.example.management.domain.model.OrderTest$Creation" time="0.003"/>
   <testcase name="creates order with lines and total equals sum of line totals" classname="com.example.management.domain.model.OrderTest$Creation" time="0.002"/>
-  <testcase name="throws when customerId is null or blank" classname="com.example.management.domain.model.OrderTest$Creation" time="0.004"/>
-  <testcase name="throws when id is null" classname="com.example.management.domain.model.OrderTest$Creation" time="0.004"/>
-  <testcase name="throws when lines is null" classname="com.example.management.domain.model.OrderTest$Creation" time="0.003"/>
+  <testcase name="throws when customerId is null or blank" classname="com.example.management.domain.model.OrderTest$Creation" time="0.003"/>
+  <testcase name="throws when id is null" classname="com.example.management.domain.model.OrderTest$Creation" time="0.002"/>
+  <testcase name="throws when lines is null" classname="com.example.management.domain.model.OrderTest$Creation" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

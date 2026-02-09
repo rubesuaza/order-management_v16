@@ -3,17 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="x-ua-compatible" content="IE=edge"/>
-<title>Test results - getOrder</title>
+<title>Test results - creation</title>
 <link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
 <link href="../css/style.css" rel="stylesheet" type="text/css"/>
 <script src="../js/report.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="content">
-<h1>getOrder</h1>
+<h1>creation</h1>
 <div class="breadcrumbs">
 <a href="../index.html">all</a> &gt; 
-<a href="../packages/com.example.management.application.services.html">com.example.management.application.services</a> &gt; OrderServiceTest$GetOrder</div>
+<a href="../packages/com.example.management.domain.model.html">com.example.management.domain.model</a> &gt; OrderLineTest$Creation</div>
 <div id="summary">
 <table>
 <tr>
@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">2</div>
+<div class="counter">6</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.025s</div>
+<div class="counter">0.022s</div>
 <p>duration</p>
 </div>
 </td>
@@ -76,15 +76,39 @@
 </tr>
 </thead>
 <tr>
-<td class="success">returns empty when not found</td>
-<td class="success">returnsEmptyWhenNotFound()</td>
-<td class="success">0.012s</td>
+<td class="success">creates valid line with positive quantity and non-negative price</td>
+<td class="success">createsValidLine()</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">returns order when found</td>
-<td class="success">returnsOrderWhenFound()</td>
-<td class="success">0.013s</td>
+<td class="success">throws when productId is null or blank</td>
+<td class="success">throwsWhenProductIdInvalid()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">throws when quantity is negative</td>
+<td class="success">throwsWhenQuantityNegative()</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">throws when quantity is zero</td>
+<td class="success">throwsWhenQuantityZero()</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">throws when unit price is negative</td>
+<td class="success">throwsWhenUnitPriceNegative()</td>
+<td class="success">0.007s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">throws when unitPrice is null</td>
+<td class="success">throwsWhenUnitPriceNull()</td>
+<td class="success">0.002s</td>
 <td class="success">passed</td>
 </tr>
 </table>

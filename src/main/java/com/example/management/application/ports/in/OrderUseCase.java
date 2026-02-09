@@ -1,27 +1,29 @@
 package com.example.management.application.ports.in;
 
-import com.example.management.domain.model.Order;
+import com.example.management.application.exception.InvalidOrderApplicationException;
+import com.example.management.application.exception.OrderNotFoundApplicationException;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 /**
- * Input port for order use cases.
+ * Input port for order use cases. Returns application DTOs and throws application-level exceptions.
  */
 public interface OrderUseCase {
 
-    Order createOrder(UUID id, String customerId, List<CreateOrderLineCommand> lines);
+    OrderOutputDto createOrder(UUID id, String customerId, List<CreateOrderLineCommand> lines)
+            throws InvalidOrderApplicationException;
 
-    Optional<Order> getOrder(UUID id);
+    Optional<OrderOutputDto> getOrder(UUID id);
 
-    List<Order> getAllOrders();
+    List<OrderOutputDto> getAllOrders();
 
-    void confirmOrder(UUID id);
+    void confirmOrder(UUID id) throws OrderNotFoundApplicationException;
 
-    void shipOrder(UUID id);
+    void shipOrder(UUID id) throws OrderNotFoundApplicationException;
 
-    void cancelOrder(UUID id);
+    void cancelOrder(UUID id) throws OrderNotFoundApplicationException;
 
     /**
      * Command for a single order line in create order.

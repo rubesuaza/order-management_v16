@@ -1,5 +1,7 @@
 package com.example.management.infrastructure.adapters.in.web.dto;
 
+import com.example.management.application.ports.in.OrderLineOutputDto;
+import com.example.management.application.ports.in.OrderOutputDto;
 import com.example.management.domain.model.Order;
 import com.example.management.domain.model.OrderStatus;
 
@@ -17,6 +19,19 @@ public record OrderResponseDto(
         List<OrderLineDto> lines,
         BigDecimal total
 ) {
+    public static OrderResponseDto from(OrderOutputDto dto) {
+        List<OrderLineDto> lineDtos = dto.lines().stream()
+                .map(l -> OrderLineDto.of(l.productId(), l.quantity(), l.unitPrice(), l.lineTotal()))
+                .toList();
+        return new OrderResponseDto(
+                dto.id(),
+                dto.customerId(),
+                OrderStatus.valueOf(dto.status()),
+                lineDtos,
+                dto.total()
+        );
+    }
+
     public static OrderResponseDto from(Order order) {
         List<OrderLineDto> lineDtos = order.getLines().stream()
                 .map(l -> OrderLineDto.of(

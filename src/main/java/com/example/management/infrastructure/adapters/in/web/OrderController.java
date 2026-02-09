@@ -1,7 +1,6 @@
 package com.example.management.infrastructure.adapters.in.web;
 
 import com.example.management.application.ports.in.OrderUseCase;
-import com.example.management.domain.model.Order;
 import com.example.management.infrastructure.adapters.in.web.dto.CreateOrderRequestDto;
 import com.example.management.infrastructure.adapters.in.web.dto.OrderResponseDto;
 import org.springframework.http.HttpStatus;
@@ -12,7 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * REST adapter for order use cases.
+ * REST adapter for order use cases. Maps application DTOs to HTTP response DTOs.
  */
 @RestController
 @RequestMapping("/api/orders")
@@ -26,12 +25,12 @@ public class OrderController {
 
     @PostMapping
     public ResponseEntity<OrderResponseDto> createOrder(@RequestBody CreateOrderRequestDto request) {
-        Order order = orderUseCase.createOrder(
+        var output = orderUseCase.createOrder(
                 request.id(),
                 request.customerId(),
                 request.toCommands()
         );
-        return ResponseEntity.status(HttpStatus.CREATED).body(OrderResponseDto.from(order));
+        return ResponseEntity.status(HttpStatus.CREATED).body(OrderResponseDto.from(output));
     }
 
     @GetMapping("/{id}")

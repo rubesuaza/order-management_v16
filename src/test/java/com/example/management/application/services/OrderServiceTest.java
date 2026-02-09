@@ -125,9 +125,12 @@ class OrderServiceTest {
             Order order = Order.create(id, "c1", List.of(OrderLine.of("p1", 1, BigDecimal.ONE)));
             when(orderRepository.findById(id)).thenReturn(Optional.of(order));
 
-            Optional<Order> result = orderService.getOrder(id);
+            Optional<OrderOutputDto> result = orderService.getOrder(id);
 
-            assertThat(result).isPresent().get().isEqualTo(order);
+            assertThat(result).isPresent();
+            assertThat(result.get().id()).isEqualTo(id);
+            assertThat(result.get().customerId()).isEqualTo("c1");
+            assertThat(result.get().total()).isEqualByComparingTo(BigDecimal.ONE);
             verify(orderRepository).findById(id);
         }
 
@@ -137,7 +140,7 @@ class OrderServiceTest {
             UUID id = UUID.randomUUID();
             when(orderRepository.findById(id)).thenReturn(Optional.empty());
 
-            Optional<Order> result = orderService.getOrder(id);
+            Optional<OrderOutputDto> result = orderService.getOrder(id);
 
             assertThat(result).isEmpty();
             verify(orderRepository).findById(id);
@@ -155,9 +158,11 @@ class OrderServiceTest {
             Order b = Order.create(UUID.randomUUID(), "c2", List.of(OrderLine.of("p2", 1, BigDecimal.ONE)));
             when(orderRepository.findAll()).thenReturn(List.of(a, b));
 
-            List<Order> result = orderService.getAllOrders();
+            List<OrderOutputDto> result = orderService.getAllOrders();
 
-            assertThat(result).containsExactly(a, b);
+            assertThat(result).hasSize(2);
+            assertThat(result.get(0).customerId()).isEqualTo("c1");
+            assertThat(result.get(1).customerId()).isEqualTo("c2");
             verify(orderRepository).findAll();
         }
 
@@ -166,7 +171,7 @@ class OrderServiceTest {
         void returnsEmptyWhenNoOrders() {
             when(orderRepository.findAll()).thenReturn(List.of());
 
-            List<Order> result = orderService.getAllOrders();
+            List<OrderOutputDto> result = orderService.getAllOrders();
 
             assertThat(result).isEmpty();
             verify(orderRepository).findAll();
@@ -193,13 +198,13 @@ class OrderServiceTest {
         }
 
         @Test
-        @DisplayName("throws OrderNotFoundException when order not found")
+        @DisplayName("throws OrderNotFoundApplicationException when order not found")
         void throwsWhenNotFound() {
             UUID id = UUID.randomUUID();
             when(orderRepository.findById(id)).thenReturn(Optional.empty());
 
             assertThatThrownBy(() -> orderService.confirmOrder(id))
-                    .isInstanceOf(OrderNotFoundException.class)
+                    .isInstanceOf(OrderNotFoundApplicationException.class)
                     .hasMessageContaining(id.toString());
             verify(orderRepository).findById(id);
         }
@@ -226,14 +231,15 @@ class OrderServiceTest {
         }
 
         @Test
-        @DisplayName("throws OrderNotFoundException when order not found")
+        @DisplayName("throws OrderNotFoundApplicationException when order not found")
         void throwsWhenNotFound() {
             UUID id = UUID.randomUUID();
             when(orderRepository.findById(id)).thenReturn(Optional.empty());
 
             assertThatThrownBy(() -> orderService.shipOrder(id))
-                    .isInstanceOf(OrderNotFoundException.class)
+                    .isInstanceOf(OrderNotFoundApplicationException.class)
                     .hasMessageContaining(id.toString());
+            verify(orderRepository).findById(id);
         }
     }
 
@@ -257,14 +263,15 @@ class OrderServiceTest {
         }
 
         @Test
-        @DisplayName("throws OrderNotFoundException when order not found")
+        @DisplayName("throws OrderNotFoundApplicationException when order not found")
         void throwsWhenNotFound() {
             UUID id = UUID.randomUUID();
             when(orderRepository.findById(id)).thenReturn(Optional.empty());
 
             assertThatThrownBy(() -> orderService.cancelOrder(id))
-                    .isInstanceOf(OrderNotFoundException.class)
+                    .isInstanceOf(OrderNotFoundApplicationException.class)
                     .hasMessageContaining(id.toString());
+            verify(orderRepository).findById(id);
         }
     }
 }

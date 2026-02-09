@@ -2,7 +2,6 @@ package com.example.management.infrastructure.adapters.in.web.dto;
 
 import com.example.management.application.ports.in.OrderLineOutputDto;
 import com.example.management.application.ports.in.OrderOutputDto;
-import com.example.management.domain.model.Order;
 import com.example.management.domain.model.OrderStatus;
 
 import java.math.BigDecimal;
@@ -29,23 +28,6 @@ public record OrderResponseDto(
                 OrderStatus.valueOf(dto.status()),
                 lineDtos,
                 dto.total()
-        );
-    }
-
-    public static OrderResponseDto from(Order order) {
-        List<OrderLineDto> lineDtos = order.getLines().stream()
-                .map(l -> OrderLineDto.of(
-                        l.getProductId(),
-                        l.getQuantity(),
-                        l.getUnitPrice(),
-                        l.getLineTotal()))
-                .toList();
-        return new OrderResponseDto(
-                order.getId(),
-                order.getCustomerId(),
-                order.getStatus(),
-                lineDtos,
-                order.getTotal()
         );
     }
 }

@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * the repository instance via {@link #createRepository()}.
  */
 @DisplayName("OrderRepository contract")
-abstract class AbstractOrderRepositoryContractTest {
+public abstract class AbstractOrderRepositoryContractTest {
 
     private OrderRepository repository;
 

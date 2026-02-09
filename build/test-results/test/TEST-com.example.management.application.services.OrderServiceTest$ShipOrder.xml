@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="shipOrder" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-02-09T19:29:24.468Z" hostname="RubenS" time="0.035">
+<testsuite name="shipOrder" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-02-09T19:40:57.030Z" hostname="RubenS" time="0.027">
   <properties/>
-  <testcase name="throws OrderNotFoundException when order not found" classname="com.example.management.application.services.OrderServiceTest$ShipOrder" time="0.016"/>
+  <testcase name="throws OrderNotFoundApplicationException when order not found" classname="com.example.management.application.services.OrderServiceTest$ShipOrder" time="0.009"/>
   <testcase name="ships and saves order when found" classname="com.example.management.application.services.OrderServiceTest$ShipOrder" time="0.014"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
